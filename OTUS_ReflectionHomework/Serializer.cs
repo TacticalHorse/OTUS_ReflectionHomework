@@ -18,7 +18,7 @@ namespace OTUS_ReflectionHomework
                 {
                     csvString.Append(fields[i].Name);
                     csvString.Append(_colSeparator);
-                    csvString.Append(fields[i].GetValue(obj)?.ToString().Replace("\r", "").Replace(_rowSeparator, "").Replace(_colSeparator,""));
+                    csvString.Append(fields[i].GetValue(obj)?.ToString().Replace(_rowSeparator, "").Replace(_colSeparator,""));
                     csvString.Append(_rowSeparator);
                 }
             }
