@@ -9,27 +9,29 @@ namespace OTUS_ReflectionHomework
         {
             long iterationCount = 100000;
             (TimeSpan sTime, TimeSpan dTime) reslt = new();
-            start:
-            
+        start:
+            Console.Clear();
             Console.WriteLine($"CUSTOM {iterationCount}");
             reslt = TestPerfomanceHelper.SerializationTest(CustomSerializeTest, CustomDeserializeTest<Sample>, Sample.Get(), iterationCount);
-            Console.WriteLine($"Serialization {reslt.sTime} {Environment.NewLine}");
-            Console.WriteLine($"Deserialization {reslt.dTime} {Environment.NewLine}");
-            Console.WriteLine($"CSV: {Environment.NewLine}");
+            Console.WriteLine($"Serialization {reslt.sTime}");
+            Console.WriteLine($"Deserialization {reslt.dTime}");
+            Console.WriteLine($"CSV Data: {Environment.NewLine}");
             Console.WriteLine(Serializer.SerializeToCSV(Sample.Get()));
-            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(new string('-', Console.WindowWidth));
 
             
             Console.WriteLine($"NewtonsoftJSON {iterationCount}");
             reslt = TestPerfomanceHelper.SerializationTest(NewtonsoftJSONSerializeTest, NewtonsoftJSONDeserializeTest<Sample>, Sample.Get(), iterationCount);
-            Console.WriteLine($"Serialization {reslt.sTime} {Environment.NewLine}");
-            Console.WriteLine($"Deserialization {reslt.dTime} {Environment.NewLine}");
+            Console.WriteLine($"Serialization {reslt.sTime}");
+            Console.WriteLine($"Deserialization {reslt.dTime}");
+            Console.WriteLine(new string('-', Console.WindowWidth));
 
             Console.WriteLine("ConsoleWriteLine");
             TimeSpan swtime = new TimeSpan();
             bool isok;
             TestPerfomanceHelper.Measure(CWTest, ref swtime, "SOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXT", out isok);
-            Console.WriteLine(swtime + Environment.NewLine);
+            Console.WriteLine(swtime);
+            Console.WriteLine(new string('-', Console.WindowWidth));
 
             Console.ReadLine();
             goto start;
