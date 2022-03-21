@@ -15,6 +15,10 @@ namespace OTUS_ReflectionHomework
             reslt = TestPerfomanceHelper.SerializationTest(CustomSerializeTest, CustomDeserializeTest<Sample>, Sample.Get(), iterationCount);
             Console.WriteLine($"Serialization {reslt.sTime} {Environment.NewLine}");
             Console.WriteLine($"Deserialization {reslt.dTime} {Environment.NewLine}");
+            Console.WriteLine($"CSV: {Environment.NewLine}");
+            Console.WriteLine(Serializer.SerializeToCSV(Sample.Get()));
+            Console.WriteLine(Environment.NewLine);
+
             
             Console.WriteLine($"NewtonsoftJSON {iterationCount}");
             reslt = TestPerfomanceHelper.SerializationTest(NewtonsoftJSONSerializeTest, NewtonsoftJSONDeserializeTest<Sample>, Sample.Get(), iterationCount);
