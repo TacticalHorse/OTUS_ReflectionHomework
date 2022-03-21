@@ -13,19 +13,19 @@ namespace OTUS_ReflectionHomework
             
             Console.WriteLine($"CUSTOM {iterationCount}");
             reslt = TestPerfomanceHelper.SerializationTest(CustomSerializeTest, CustomDeserializeTest<Sample>, Sample.Get(), iterationCount);
-            Console.WriteLine($"Serialization {reslt.sTime.ToString("G")} {Environment.NewLine}");
-            Console.WriteLine($"Deserialization {reslt.dTime.ToString("G")} {Environment.NewLine}");
+            Console.WriteLine($"Serialization {reslt.sTime} {Environment.NewLine}");
+            Console.WriteLine($"Deserialization {reslt.dTime} {Environment.NewLine}");
             
             Console.WriteLine($"NewtonsoftJSON {iterationCount}");
             reslt = TestPerfomanceHelper.SerializationTest(NewtonsoftJSONSerializeTest, NewtonsoftJSONDeserializeTest<Sample>, Sample.Get(), iterationCount);
-            Console.WriteLine($"Serialization {reslt.sTime.ToString("G")} {Environment.NewLine}");
-            Console.WriteLine($"Deserialization {reslt.dTime.ToString("G")} {Environment.NewLine}");
+            Console.WriteLine($"Serialization {reslt.sTime} {Environment.NewLine}");
+            Console.WriteLine($"Deserialization {reslt.dTime} {Environment.NewLine}");
 
             Console.WriteLine("ConsoleWriteLine");
             TimeSpan swtime = new TimeSpan();
             bool isok;
             TestPerfomanceHelper.Measure(CWTest, ref swtime, "SOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXTSOMETEXT", out isok);
-            Console.WriteLine(swtime.ToString("G") + Environment.NewLine);
+            Console.WriteLine(swtime + Environment.NewLine);
 
             Console.ReadLine();
             goto start;
